@@ -162,4 +162,28 @@ ALTER DATABASE [Shop] SET  READ_WRITE
 GO
 
 
+USE [Shop]
+GO
+SET IDENTITY_INSERT [dbo].[Categories] ON 
+
+INSERT [dbo].[Categories] ([Id], [Name]) VALUES (1, N'Fruits')
+INSERT [dbo].[Categories] ([Id], [Name]) VALUES (2, N'Vegetables')
+SET IDENTITY_INSERT [dbo].[Categories] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Products] ON 
+
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (1, N'Apple', N'apple.png', CAST(2.99 AS Numeric(18, 2)), 1)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (2, N'Apricots', N'apricots.png', CAST(3.99 AS Numeric(18, 2)), 1)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (3, N'Oranges', N'orange.png', CAST(1.49 AS Numeric(18, 2)), 1)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (4, N'Banana', N'banana.png', CAST(0.99 AS Numeric(18, 2)), 1)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (5, N'Grapes', N'grapes.png', CAST(2.49 AS Numeric(18, 2)), 1)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (6, N'Raspberries', N'raspberries.png', CAST(4.99 AS Numeric(18, 2)), 1)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (7, N'Tomatoes', N'tomatoes.png', CAST(3.49 AS Numeric(18, 2)), 2)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (8, N'Bell Pepper', N'bell_pepper.png', CAST(1.79 AS Numeric(18, 2)), 2)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (9, N'Brocoli', N'brocoli.png', CAST(2.89 AS Numeric(18, 2)), 2)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (10, N'Parsely', N'parsely.png', CAST(0.49 AS Numeric(18, 2)), 2)
+INSERT [dbo].[Products] ([Id], [Name], [Img], [Price], [CategorieId]) VALUES (11, N'Potatoes', N'potatoes.png', CAST(1.99 AS Numeric(18, 2)), 2)
+SET IDENTITY_INSERT [dbo].[Products] OFF
+
+
 
