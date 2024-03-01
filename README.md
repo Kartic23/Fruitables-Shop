@@ -18,8 +18,7 @@ To run the Fruitables web app locally on your machine, follow these steps:<br />
   - HTML/CSS <br />
   
 - Images of Fruitables App:
-
-      - HomePage without login:
+    - HomePage without login:
    
 ![image](https://github.com/Kartic23/Fruitables-Shop/assets/105547398/f84cb68a-d64b-4603-b24d-c91be2976de1)
 
