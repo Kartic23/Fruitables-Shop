@@ -7,7 +7,7 @@ To run the Fruitables web app locally on your machine, follow these steps:<br />
     - Clone this repository to your local machine.<br />
     - Open the solution in Visual Studio. <br />
     - Ensure that you have SQL Server installed and running. <br />
-    - Update the connection string in appsettings.json to point to your SQL Server instance. <br />
+    - Update the connection string in Web.config to point to your SQL Server instance. <br />
     - Build and run the application in Visual Studio. <br />
     - Navigate to the provided localhost URL in your web browser to access the app. <br />
 
