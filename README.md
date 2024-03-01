@@ -1,22 +1,23 @@
 # Fruitables Web App
 
-Welcome to Fruitables, an ASP .NET web application designed for managing fruits and vegetables. This app utilizes individual accounts for authentication, leveraging Visual Studio for development and SQL Server for the database backend.
+Welcome to Fruitables, an ASP .NET web application designed for managing fruits and vegetables. This app utilizes individual accounts for authentication, leveraging Visual Studio for development and SQL Server for the database backend. <br />
 
--Getting Started
-To run the Fruitables web app locally on your machine, follow these steps:
-Clone this repository to your local machine.
-Open the solution in Visual Studio.
-Ensure that you have SQL Server installed and running.
-Update the connection string in appsettings.json to point to your SQL Server instance.
-Build and run the application in Visual Studio.
-Navigate to the provided localhost URL in your web browser to access the app.
+- Getting Started
+To run the Fruitables web app locally on your machine, follow these steps:<br />
+    Clone this repository to your local machine.<br />
+    Open the solution in Visual Studio. <br />
+    Ensure that you have SQL Server installed and running. <br />
+    Update the connection string in appsettings.json to point to your SQL Server instance. <br />
+    Build and run the application in Visual Studio. <br />
+    Navigate to the provided localhost URL in your web browser to access the app. <br />
 
--Technologies Used
-  ASP .NET Core
-  Visual Studio
-  SQL Server
-
-Images of Fruitables App:
+- Technologies Used: 
+  ASP .NET Core <br />
+  Visual Studio <br />
+  SQL Server <br />
+  Html/Css <br />
+  
+- Images of Fruitables App:
 
 HomePage without login:
 ![image](https://github.com/Kartic23/Fruitables-Shop/assets/105547398/f84cb68a-d64b-4603-b24d-c91be2976de1)
