@@ -1,0 +1,4 @@
+﻿This is the admin log in for this app
+
+User: admin@admin.com
+Password: Abcd1234!

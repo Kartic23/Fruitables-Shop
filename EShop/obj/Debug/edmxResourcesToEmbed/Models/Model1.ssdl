@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserMail" Type="varchar(max)" Nullable="false" />
+    <Property Name="Total" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="orderDay" Type="date" />
+  </EntityType>
+  <EntityType Name="Orders_items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="Qty" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" Nullable="false" />
+    <Property Name="Img" Type="varchar(max)" Nullable="false" />
+    <Property Name="Price" Type="numeric" Precision="18" Scale="2" />
+    <Property Name="CategorieId" Type="int" />
+  </EntityType>
+  <Association Name="FK__Orders_it__Order__5EBF139D">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="Orders_items" Type="Self.Orders_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders_items">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders_it__Produ__5FB337D6">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Orders_items" Type="Self.Orders_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Orders_items">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Catego__59FA5E80">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategorieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShopModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders_items" EntityType="Self.Orders_items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Orders_it__Order__5EBF139D" Association="Self.FK__Orders_it__Order__5EBF139D">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Orders_items" EntitySet="Orders_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders_it__Produ__5FB337D6" Association="Self.FK__Orders_it__Produ__5FB337D6">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders_items" EntitySet="Orders_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Catego__59FA5E80" Association="Self.FK__Products__Catego__59FA5E80">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

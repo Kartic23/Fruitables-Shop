@@ -1,0 +1,93 @@
+﻿@model IEnumerable<EShop.Models.MyOrders>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div style="background: url(/Content/images/cart-page-header-img.jpg); background-position: center center; background-repeat: no-repeat; background-size: cover; " class="container-fluid page-header py-3">
+    <h1 class="text-center text-white display-3">My Orders</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="/Home/Index">Home</a></li>
+        <li class="breadcrumb-item"><a href="/Products/Index">Products</a></li>
+        <li class="breadcrumb-item active text-white">My Orders</li>
+    </ol>
+</div>
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Order Day</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <p class="mb-0 mt-4">@Html.DisplayFor(modelItem => item.Order.orderDay)</p>
+                            </td>
+                            <td>
+                                <p class="mb-0 mt-4"> @Html.DisplayFor(modelItem => item.Order.Total) $</p>
+                            </td>
+                            <td>
+                                <p class="d-inline-flex gap-1">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample_@Html.DisplayFor(modelItem => item.Order.Id)" aria-expanded="false" aria-controls="collapseExample">
+                                        <i class="bi bi-eye"></i> Show Details
+                                    </button>
+                                </p>
+
+                                <div class="collapse" id="collapseExample_@Html.DisplayFor(modelItem => item.Order.Id)">
+                                    <div class="col-md-10 col-lg-3 col-xl-10">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Products</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Price</th>
+                                                        <th scope="col">Quantity</th>
+                                                        <th scope="col">Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item1 in item.Items)
+                                                    {
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <div class="d-flex align-items-center mt-2">
+                                                                    <img src="~/Content/images/@Html.DisplayFor(modelItem => item1.Product.Img)" class="img-fluid rounded-circle" style="width: 90px; height: 90px;" alt="">
+                                                                </div>
+                                                            </th>
+                                                            <td class="py-5">@Html.DisplayFor(modelItem => item1.Product.Name)</td>
+                                                            <td class="py-5">@Html.DisplayFor(modelItem => item1.Product.Price)</td>
+                                                            <td class="py-5">@Html.DisplayFor(modelItem => item1.Qty)</td>
+                                                            <td class="py-5">
+                                                                @{
+                                                                    double Total = (double) item1.Qty * (double) item1.Product.Price;
+                                                                    @Html.DisplayTextFor(modelItem => Total)
+                                                                } $
+                                                                                                                    </td>
+                                                        </tr>
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>

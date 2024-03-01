@@ -1,0 +1,49 @@
+﻿@model EShop.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@for (var i = 0; i < 6; i++)
+{
+    <br style="color:transparent" />
+}
+
+<div style="text-align: center">
+    <main aria-labelledby="title">
+        <h2 id="title">@ViewBag.Title - Create a new account </h2>
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div style="margin-left: 25%" class="row">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 form-label my-3" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div style="margin-left: 25%" class="row">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 form-label my-3" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div style="margin-left: 25%" class="row">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 form-label my-3" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div style="margin-right: 18%" class="row">
+                <div class="offset-md-2 col-md-10">
+                    <input type="submit" value="Register" class="btn border-secondary py-3 px-4 text-uppercase w-100 text-primary" />
+                </div>
+            </div>
+        }
+    </main>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
